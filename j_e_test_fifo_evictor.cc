@@ -85,4 +85,11 @@ TEST_CASE("Evictor works as described in fifo_evictor.hh", "[evictor]") {
 
     REQUIRE(e.evict() == "");
   }
+
+
+  // SECTION("This should fail, for posterity."){
+  //   e.touch_key("chicken");
+  //   REQUIRE(e.evict() == "duck");
+  // }
+
 }
