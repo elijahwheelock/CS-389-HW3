@@ -8,30 +8,34 @@
 
 TEST_CASE("test set" "[set]") {
   Cache c(16);
+  Cache::val_type result;
+  Cache::size_type val_size = 0;
   
   SECTION( "Cache::get on empty cache returns nullptr" ) {
     REQUIRE(c.get(first_key, val_size) == nullptr);
   }
+  SECTION( "Cache::get after Cache::set returns the same key" ) {
+    c.set("1", "first", 6);
+    result = c.get("1", val_size);
+    REQUIRE(result != nullptr);
+    REQUIRE(std::strcmp(result, "first") == 0);
+  }
   SECTION( "Cache::set performs a deep copy" ) {
-    Cache::val_type first = "first";
     key_type first_key = "1";
+    Cache::val_type first = "first";
     c.set(first_key, first, 6);
-    first_key = "1232";
     first = "nothing";
     REQUIRE(c.space_used() == 6);
   }
-  SECTION( "Cache::get after Cache::set returns the same key" ) {
-    c.set(first_key, first, 6);
-    result = c.get(first_key, val_size);
-    REQUIRE(result != nullptr);
-    REQUIRE(std::strcmp(result, "first") == 0);
-
+  SECTION( "successive sets to different keys increase space_used" ) {
+    c.set("1", "first", 6);
+    c.set("2", "second", 7);
+    REQUIRE(c.space_used() == 13);
   }
-  SECTION( "" ) {
-
-  }
-  SECTION( "" ) {
-
+  SECTION( "Cache::get updates its second argument to the size of the requested element" ) {
+    c.set("2", "second", 7);
+    result = c.get(second_key, val_size);
+    REQUIRE(val_size == 7);
   }
 }
 
@@ -49,23 +53,10 @@ void test_set_and_get(){
 
   Cache::val_type result;
 
-
   Cache::size_type val_size = 0;
 
   c.set(first_key, first, 6);
-
-  first = "nothing";
-  REQUIRE(c.space_used() == 6);
-
-  result = c.get(first_key, val_size);
-  REQUIRE(result != nullptr);
-  REQUIRE(std::strcmp(result, "first") == 0);
-  REQUIRE(val_size == 6);
-
   c.set(second_key, second, 7);
-
-  second = "nothing";
-  REQUIRE(c.space_used() == 13);
 
   result = c.get(second_key, val_size);
   REQUIRE(result != nullptr);
