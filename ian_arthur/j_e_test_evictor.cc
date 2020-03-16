@@ -1,8 +1,10 @@
 #include <cassert>
 #include <iostream>
-#include "fifo_evictor.hh"
 
-FIFO e;
+#include "fifo_evictor.hh"
+#include "catch2.hh"
+
+FifoEvictor e;
 
 void reset() {
   while (e.evict() != "") {}
@@ -35,7 +37,9 @@ void test_evict() {
 int main() {
   reset();
   test_touch_key();
+  reset();
   test_evict();
+  reset();
   std::cout << "All evictor tests passing \n";
   return 0;
 }

@@ -4,6 +4,7 @@
 
 #include "evictor.hh"
 #include "cache.hh"
+#include "catch2.hh"
 
 
 Cache c(16);
@@ -25,7 +26,7 @@ void test_set_and_get(){
 
   Cache::size_type val_size = 0;
 
-  assert(c.get(first_key, val_size) == nullptr); // fails
+  assert(c.get(first_key, val_size) == nullptr);
 
   c.set(first_key, first, 6);
 
