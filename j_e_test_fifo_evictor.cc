@@ -5,14 +5,12 @@
 #include "fifo_evictor.hh"
 #include "catch2.hh"
 
-void reset() {
-  while (e.evict() != "") {}
-}
 
 TEST_CASE("Evictor works as described in fifo_evictor.hh", "[evictor]") {
+
   FifoEvictor e;
 
-  reset();
+  while (e.evict() != "") {};
   REQUIRE(e.evict() == "");
 
   SECTION("Evicting after touching a key should return that key."){
@@ -25,14 +23,32 @@ TEST_CASE("Evictor works as described in fifo_evictor.hh", "[evictor]") {
     REQUIRE(e.evict() == "");
   }
 
+  SECTION("Insertion order should be respected in eviction order."){
+    while (e.evict() != "") {};
+    REQUIRE(e.evict() == "");
+
+    e.touch_key("2");
+    e.touch_key("3");
+    e.touch_key("1");
+    e.touch_key("4");
+
+    REQUIRE(e.evict() == "2");
+    REQUIRE(e.evict() == "3");
+    REQUIRE(e.evict() == "1");
+    REQUIRE(e.evict() == "4");
+    REQUIRE(e.evict() == "");
+
+  }
+
   SECTION("Insertion order should be respected in eviction order, even with duplicates."){
-    reset();
+    while (e.evict() != "") {};
     REQUIRE(e.evict() == "");
 
     e.touch_key("2");
     e.touch_key("3");
     e.touch_key("2");
     e.touch_key("2");
+    e.touch_key("1");
     e.touch_key("1");
     e.touch_key("4");
 
@@ -41,12 +57,14 @@ TEST_CASE("Evictor works as described in fifo_evictor.hh", "[evictor]") {
     REQUIRE(e.evict() == "2");
     REQUIRE(e.evict() == "2");
     REQUIRE(e.evict() == "1");
+    REQUIRE(e.evict() == "1");
     REQUIRE(e.evict() == "4");
     REQUIRE(e.evict() == "");
 
   }
 
   SECTION("Emptying the cache between insertions should not change behavior."){
+    while (e.evict() != "") {};
 
     e.touch_key("2");
     e.touch_key("3");
