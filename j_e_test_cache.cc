@@ -29,7 +29,7 @@ TEST_CASE("test set" "[set]") {
 
   SECTION( "Cache::set performs a deep copy" ) {
     Cache::val_type first = "first";
-    c.set("1", "first", 6);
+    c.set("1", first, 6);
     first = "nothing";
     REQUIRE(c.space_used() == 6);
   }
