@@ -1,10 +1,11 @@
+#define CATCH_CONFIG_MAIN
+
 #include <iostream>
 #include <cstring>
 
 #include "evictor.hh"
 #include "cache.hh"
 #include "catch2.hh"
-#define CATCH_CONFIG_MAIN
 
 TEST_CASE("test set" "[set]") {
   Cache c(16);
@@ -27,7 +28,6 @@ TEST_CASE("test set" "[set]") {
   }
 
   SECTION( "Cache::set performs a deep copy" ) {
-    key_type "1" = "1";
     Cache::val_type first = "first";
     c.set("1", "first", 6);
     first = "nothing";

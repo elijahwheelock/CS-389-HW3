@@ -10,8 +10,9 @@ TEST_CASE("Evictor works as described in fifo_evictor.hh", "[evictor]") {
 
   FifoEvictor e;
 
-  while (e.evict() != "") {};
-  REQUIRE(e.evict() == "");
+  SECTION("Evicting on an empty evictor should return an empty string") {
+    REQUIRE(e.evict() == "");
+  }
 
   SECTION("Evicting after touching a key should return that key."){
     e.touch_key("hello");
