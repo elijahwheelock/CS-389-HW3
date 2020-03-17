@@ -1,4 +1,4 @@
-#include "fifo_evictor.h"
+#include "fifo_evictor.hh"
 #include <algorithm>
 
 FifoEvictor::FifoEvictor():
