@@ -91,7 +91,7 @@ int main() {
 	
 	//init evictor-less cache to test
 	Cache* test_cache = new Cache(10);
-	auto evictor = new FIFO();
+	auto evictor = new FifoEvictor();
 	Cache* test_cache_with_evictor = new Cache(10,0.75,evictor);
 
 	//init byte_type values to be used
