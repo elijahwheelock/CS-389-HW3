@@ -1,8 +1,9 @@
 # CS-389-HW3
 ## Jonah Kohn and Elijah Wheelock
 
-In order to confirm the functionality of the Cache projects from Hw2, we built a series of tests based on TDD fundamentals. The tests are written to be used by the Catch2 library, which provides an insightful view into the source of test failures. The tests are written to confirm the functionality of the Cache and Evictor modules, based on the API given by Eitan. Tests are designed to probe a single element of the Cache or Evictor functionality, and are standalone functions aside from the common fixture object. For all three of our testing volunteers, we had no issues compiling or linking the files, besides the fact that each of us chose a different name for the object defined in fifo\_evictor.hh, and a few other minor naming tweaks. The results from our own personal testing as well as the volunteer tests are outlined in the charts below:
+*Eitan granted us a two-day extension for this assignment, due to the complications around recent campus news.*
 
+In order to confirm the functionality of the Cache projects from Hw2, we built a series of tests based on TDD fundamentals. The tests are written to be used by the Catch2 library, which provides an insightful view into the source of test failures. The tests are written to confirm the functionality of the Cache and Evictor modules, based on the API given by Eitan. Tests are designed to probe a single element of the Cache or Evictor functionality, and are standalone functions aside from the common fixture object. For all three of our testing volunteers, we had no issues compiling or linking the files, besides the fact that each of us chose a different name for the object defined in fifo\_evictor.hh, and a few other minor naming tweaks. The results from our own personal testing as well as the volunteer tests are outlined in the charts below:
 
 #### Elijah and Jonah's Cache:
 | **Cache Tests**      | **Description**                                                             | Pass/Fail |
