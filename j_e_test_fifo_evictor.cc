@@ -69,11 +69,11 @@ TEST_CASE("Evictor works as described in fifo_evictor.hh", "[evictor]") {
 
     e.touch_key("2");
     e.touch_key("3");
-    e.touch_key("2");
+    e.touch_key("5");
 
     REQUIRE(e.evict() == "2");
     REQUIRE(e.evict() == "3");
-    REQUIRE(e.evict() == "2");
+    REQUIRE(e.evict() == "5");
     REQUIRE(e.evict() == "");
 
     e.touch_key("2");

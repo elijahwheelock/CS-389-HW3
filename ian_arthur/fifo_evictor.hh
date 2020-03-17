@@ -13,10 +13,10 @@ using key_type = std::string;
 // It allows touching a key (on a set or get event), and request for
 // eviction, which also deletes a key. There is no explicit deletion
 // mechanism other than eviction.
-class FIFO: public Evictor {
+class FifoEvictor: public Evictor {
  public:
- 	FIFO() = default;
-    virtual ~FIFO() = default;
+ 	FifoEvictor() = default;
+    virtual ~FifoEvictor() = default;
  	std::vector<key_type> next_up;
  	//for LRU, keep things in vect with pair of 
 

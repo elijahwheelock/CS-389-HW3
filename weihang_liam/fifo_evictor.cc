@@ -1,14 +1,14 @@
 #include "fifo_evictor.h"
 #include <algorithm>
 
-Fifo_evictor::Fifo_evictor():
+FifoEvictor::FifoEvictor():
 	key_queue_(new std::deque<key_type>())
 	{}
 
 
-Fifo_evictor::~Fifo_evictor() = default;
+FifoEvictor::~FifoEvictor() = default;
 
-void Fifo_evictor::touch_key(const key_type& key )
+void FifoEvictor::touch_key(const key_type& key )
 {
 	// If the key is already in the queue, delete it.
 	auto it = std::find(key_queue_->begin(), key_queue_->end(), key);
@@ -19,7 +19,7 @@ void Fifo_evictor::touch_key(const key_type& key )
 	// Push the key to the end of the queue.
 	key_queue_->push_back(key);
 }
-const key_type Fifo_evictor::evict()
+const key_type FifoEvictor::evict()
 {
 
 	if(key_queue_->empty())
