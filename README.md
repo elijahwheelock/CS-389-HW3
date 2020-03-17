@@ -1,6 +1,8 @@
 # CS-389-HW3
 ## Jonah Kohn and Elijah Wheelock
 
+*Eitan granted us a two-day extension for this assignment, due to the complications around recent campus news.*
+
 In order to confirm the functionality of the Cache projects from Hw2, we built a series of tests based on TDD fundamentals. The tests are written to be used by the Catch/2 library, which provides an incredibly insightful view into the source of test failures. The tests are written to confirm the functionality of the Cache and Evictor modules, based on the API given by Eitan. Tests are designed to probe a single element of the Cache functionality, and are standalone functions. For all three of our testing volunteers, we had no issues compiling or linking the files. The results from our own personal testing as well as the volunteer tests are outlined in the charts below:
 
 
