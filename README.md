@@ -3,7 +3,7 @@
 
 
 #### Elijah and Jonah's Cache:
-| Test Name            | Description                                                                 | Pass/Fail |
+| **Cache Tests**      | **Description**                                                             | Pass/Fail |
 | -------------        |:--------------------------------------------------------------------------- |:--------- |
 | Clean Slate          | Cache::get on empty cache returns nullptr                                   | Pass      |
 | Basic Fetching       | Cache::get returns the value set for the key                                | Pass      |
@@ -16,18 +16,15 @@
 | Deleting Nothing     | Cache::del fails on non-inserted keys                                       | Pass      |
 | True Deletion        | Cache::del renders the deleted element inaccessible                         | Pass      |
 | True Reset           | Cache::reset renders all elements inaccessible, zeroes space_used           | Pass      |
-
-#### Elijah and Jonah's Evictor:
-| Test Name     | Description                                                                 | Pass/Fail |
-| ------------- |:--------------------------------------------------------------------------- |:--------- |
-| Clean Slate   | Evicting on an empty evictor should return an empty string                  | Pass      |
-| Order 1       | Evicting after touching a key should return that key                        | Pass      |
-| Order 2       | Insertion order should be respected in eviction order                       | Pass      |
-| Duplicates    | Insertion order should be respected in eviction order, even with duplicates | Pass      |
-| Emptying      | Emptying the cache between insertions should not change behavior            | Pass      |
+| **Evictor Tests**    | **Description**                                                             |           |
+| Clean Slate          | Evicting on an empty evictor should return an empty string                  | Pass      |
+| Order 1              | Evicting after touching a key should return that key                        | Pass      |
+| Order 2              | Insertion order should be respected in eviction order                       | Pass      |
+| Duplicates           | Insertion order should be respected in eviction order, even with duplicates | Pass      |
+| Emptying             | Emptying the cache between insertions should not change behavior            | Pass      |
 
 #### Arthur and Ian's Cache:
-| Test Name            | Description                                                                 | Pass/Fail |
+| **Cache Tests**      | **Description**                                                             | Pass/Fail |
 | -------------        |:--------------------------------------------------------------------------- |:--------- |
 | Clean Slate          | Cache::get on empty cache returns nullptr                                   | Fail      |
 | Basic Fetching       | Cache::get returns the value set for the key                                | Pass      |
@@ -40,18 +37,15 @@
 | Deleting Nothing     | Cache::del fails on non-inserted keys                                       | Pass      |
 | True Deletion        | Cache::del renders the deleted element inaccessible                         | Fail      |
 | True Reset           | Cache::reset renders all elements inaccessible, zeroes space_used           | Fail      |
-
-#### Arthur and Ian's Evictor:
-| Test Name     | Description                                                                 | Pass/Fail |
-| ------------- |:--------------------------------------------------------------------------- |:--------- |
-| Clean Slate   | Evicting on an empty evictor should return an empty string                  | Pass      |
-| Order 1       | Evicting after touching a key should return that key                        | Pass      |
-| Order 2       | Insertion order should be respected in eviction order                       | Pass      |
-| Duplicates    | Insertion order should be respected in eviction order, even with duplicates | Fail      |
-| Emptying      | Emptying the cache between insertions should not change behavior            | Pass      |
+| **Evictor Tests**    | **Description**                                                             |           |
+| Clean Slate          | Evicting on an empty evictor should return an empty string                  | Pass      |
+| Order 1              | Evicting after touching a key should return that key                        | Pass      |
+| Order 2              | Insertion order should be respected in eviction order                       | Pass      |
+| Duplicates           | Insertion order should be respected in eviction order, even with duplicates | Fail      |
+| Emptying             | Emptying the cache between insertions should not change behavior            | Pass      |
 
 #### James and Reilly's Cache:
-| Test Name            | Description                                                                 | Pass/Fail |
+| **Cache Tests**      | **Description**                                                             | Pass/Fail |
 | -------------        |:--------------------------------------------------------------------------- |:--------- |
 | Clean Slate          | Cache::get on empty cache returns nullptr                                   | Pass      |
 | Basic Fetching       | Cache::get returns the value set for the key                                | Pass      |
@@ -64,18 +58,15 @@
 | Deleting Nothing     | Cache::del fails on non-inserted keys                                       | Pass      |
 | True Deletion        | Cache::del renders the deleted element inaccessible                         | Pass      |
 | True Reset           | Cache::reset renders all elements inaccessible, zeroes space_used           | Pass      |
-
-#### James and Reilly's Evictor:
-| Test Name     | Description                                                                 | Pass/Fail |
-| ------------- |:--------------------------------------------------------------------------- |:--------- |
-| Clean Slate   | Evicting on an empty evictor should return an empty string                  | Pass      |
-| Order 1       | Evicting after touching a key should return that key                        | Pass      |
-| Order 2       | Insertion order should be respected in eviction order                       | Pass      |
-| Duplicates    | Insertion order should be respected in eviction order, even with duplicates | Pass      |
-| Emptying      | Emptying the cache between insertions should not change behavior            | Pass      |
+| **Evictor Tests**    | **Description**                                                             |           |
+| Clean Slate          | Evicting on an empty evictor should return an empty string                  | Pass      |
+| Order 1              | Evicting after touching a key should return that key                        | Pass      |
+| Order 2              | Insertion order should be respected in eviction order                       | Pass      |
+| Duplicates           | Insertion order should be respected in eviction order, even with duplicates | Pass      |
+| Emptying             | Emptying the cache between insertions should not change behavior            | Pass      |
 
 #### Liam and Weihang's Cache:
-| Test Name            | Description                                                                 | Pass/Fail |
+| **Cache Tests**      | **Description**                                                             | Pass/Fail |
 | -------------        |:--------------------------------------------------------------------------- |:--------- |
 | Clean Slate          | Cache::get on empty cache returns nullptr                                   | Pass      |
 | Basic Fetching       | Cache::get returns the value set for the key                                | Fail      |
@@ -88,13 +79,10 @@
 | Deleting Nothing     | Cache::del fails on non-inserted keys                                       | Pass      |
 | True Deletion        | Cache::del renders the deleted element inaccessible                         | Pass      |
 | True Reset           | Cache::reset renders all elements inaccessible, zeroes space_used           | Pass      |
-
-#### Liam and Weihang's Evictor:
-| Test Name     | Description                                                                 | Pass/Fail |
-| ------------- |:--------------------------------------------------------------------------- |:--------- |
-| Clean Slate   | Evicting on an empty evictor should return an empty string                  | Pass      |
-| Order 1       | Evicting after touching a key should return that key                        | Pass      |
-| Order 2       | Insertion order should be respected in eviction order                       | Pass      |
-| Duplicates    | Insertion order should be respected in eviction order, even with duplicates | Fail      |
-| Emptying      | Emptying the cache between insertions should not change behavior            | Pass      |
+| **Evictor Tests**    | **Description**                                                             |           |
+| Clean Slate          | Evicting on an empty evictor should return an empty string                  | Pass      |
+| Order 1              | Evicting after touching a key should return that key                        | Pass      |
+| Order 2              | Insertion order should be respected in eviction order                       | Pass      |
+| Duplicates           | Insertion order should be respected in eviction order, even with duplicates | Fail      |
+| Emptying             | Emptying the cache between insertions should not change behavior            | Pass      |
 
